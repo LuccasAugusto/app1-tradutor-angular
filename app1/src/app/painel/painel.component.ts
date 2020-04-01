@@ -16,9 +16,12 @@ export class PainelComponent implements OnInit {
 
   public rodada: number = 0
   public rodadaFrase: Frase
+
   public progresso: number = 0
 
-  constructor() { this.atualizaRodada }
+  public tentativas: number = 3
+
+  constructor() { this.atualizaRodada() }
 
   ngOnInit(): void {
   }
@@ -36,10 +39,15 @@ export class PainelComponent implements OnInit {
       //progresso da rodada
       this.progresso = this.progresso + (100 / this.frases.length)
 
-     
       this.atualizaRodada
     } else {
-      alert('A frase está errada!')
+      
+      //decrementar as tentativas
+      this.tentativas--
+
+      if (this.tentativas == -1) {
+        alert('Você perdeu todas as tentativas')
+      }
     }    
   }
 
