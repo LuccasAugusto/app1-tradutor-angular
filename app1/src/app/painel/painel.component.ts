@@ -31,7 +31,6 @@ export class PainelComponent implements OnInit {
   public verificarResposta(): void {
 
     if(this.rodadaFrase.frasePtBr == this.resposta) {
-      alert('A frase está correta!')
 
       //torcar pergunta da rodada
       this.rodada++
@@ -39,7 +38,7 @@ export class PainelComponent implements OnInit {
       //progresso da rodada
       this.progresso = this.progresso + (100 / this.frases.length)
 
-      this.atualizaRodada
+      this.atualizaRodada()
     } else {
       
       //decrementar as tentativas

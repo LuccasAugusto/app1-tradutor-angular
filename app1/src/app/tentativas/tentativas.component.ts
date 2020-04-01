@@ -17,12 +17,11 @@ export class TentativasComponent implements OnInit {
   constructor() {}
 
   ngOnChanges() {
-    
-    if (this.coracoes.length == 0 ) {
+  
+    if ( this.coracoes.length == 0 ) {
       this.construindoTentativas()
-    }
-
-    if (this.tentativas !== this.coracoes.length ) {
+ 
+    } else if ( this.tentativas !== this.coracoes.length ) {
       this.esvaziarCaracao()
     } 
    
@@ -40,9 +39,10 @@ export class TentativasComponent implements OnInit {
   }
 
   public esvaziarCaracao(): void {
-
-    this.coracoes[this.tentativas - 1].cheio = false
-
+    
+    let i : number = this.coracoes.length - this.tentativas
+    this.coracoes[i - 1].cheio = false
+    
   }
 
 
